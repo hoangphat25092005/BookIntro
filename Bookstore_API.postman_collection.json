@@ -1,0 +1,215 @@
+{
+  "info": {
+    "name": "Bookstore API",
+    "description": "Complete API collection for the Bookstore application",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Create Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"The Great Gatsby\",\n  \"author\": \"F. Scott Fitzgerald\",\n  \"price\": 15.99,\n  \"stock\": 50,\n  \"description\": \"A classic American novel\",\n  \"category\": \"Fiction\",\n  \"image\": \"https://example.com/book-cover.jpg\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/books/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "create"]
+            }
+          }
+        },
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/books/all",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "all"]
+            }
+          }
+        },
+        {
+          "name": "Get Book by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/books/:bookId",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", ":bookId"],
+              "variable": [
+                {
+                  "key": "bookId",
+                  "value": "REPLACE_WITH_BOOK_ID"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated Book Title\",\n  \"author\": \"Updated Author\",\n  \"price\": 20.99,\n  \"stock\": 75,\n  \"description\": \"Updated description\",\n  \"category\": \"Updated Category\",\n  \"image\": \"https://example.com/updated-cover.jpg\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/books/:bookId",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", ":bookId"],
+              "variable": [
+                {
+                  "key": "bookId",
+                  "value": "REPLACE_WITH_BOOK_ID"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/books/:bookId",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", ":bookId"],
+              "variable": [
+                {
+                  "key": "bookId",
+                  "value": "REPLACE_WITH_BOOK_ID"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"johndoe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"securepassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"johndoe\",\n  \"password\": \"securepassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookId\": \"REPLACE_WITH_BOOK_ID\",\n  \"userId\": \"REPLACE_WITH_USER_ID\",\n  \"quantity\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "create"]
+            }
+          }
+        },
+        {
+          "name": "Get All Orders",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/orders/all",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "all"]
+            }
+          }
+        },
+        {
+          "name": "Get Order by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/orders/:orderId",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", ":orderId"],
+              "variable": [
+                {
+                  "key": "orderId",
+                  "value": "REPLACE_WITH_ORDER_ID"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
